@@ -1,3 +1,4 @@
+// Logic to get computer choice
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3)
     if (randomNumber === 0) {
@@ -9,6 +10,7 @@ function getComputerChoice() {
     }
 }
 
+// Logic to get human choice
 function getHumanChoice() {
     let humanInput = prompt('Rock, Paper or Scissors?')
     switch (humanInput.toLowerCase()) {
@@ -30,10 +32,10 @@ function getHumanChoice() {
     }
 }
 
-let humanScore = 0
-let computerScore = 0
-
+// Logic to play 1 round
 function playRound (humanChoice, computerChoice) {
+    console.log("Computer selected: " + computerSelection);
+    console.log("You selected: " + humanSelection);
     if (humanChoice == computerChoice) {
         return console.log("It's a tie!");
     } else if (humanChoice == 'Rock' && computerChoice == 'Paper') {
@@ -53,13 +55,40 @@ function playRound (humanChoice, computerChoice) {
     }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
 
-console.log("Computer selected: " + computerSelection)
-console.log("You selected: " + humanSelection)
+let humanScore = 0
+let computerScore = 0
 
-playRound(humanSelection, computerSelection)
+let humanSelection = getHumanChoice();
+let computerSelection = getComputerChoice();
 
-console.log(humanScore)
-console.log(computerScore)
+// Logic to play 5 rounds in a row
+function playGame () {
+    playRound(humanSelection, computerSelection);
+    console.log("The score is:\nComputer: " + computerScore + "\nYou: " + humanScore);
+    humanSelection = getHumanChoice();
+    computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
+    console.log("The score is:\nComputer: " + computerScore + "\nYou: " + humanScore);
+    humanSelection = getHumanChoice();
+    computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
+    console.log("The score is:\nComputer: " + computerScore + "\nYou: " + humanScore);
+    humanSelection = getHumanChoice();
+    computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
+    console.log("The score is:\nComputer: " + computerScore + "\nYou: " + humanScore);
+    humanSelection = getHumanChoice();
+    computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
+    console.log("The score is:\nComputer: " + computerScore + "\nYou: " + humanScore);
+    if (humanScore == computerScore) {
+        return console.log("The game is a tie!");
+    } else if (humanScore > computerScore) {
+        return console.log("You win the game. Congratulations!")
+    } else {
+        return console.log("You lose the game. Better luck next time.")
+    }
+}
+
+playGame()
