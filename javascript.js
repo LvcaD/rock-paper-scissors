@@ -1,11 +1,11 @@
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3)
     if (randomNumber === 0) {
-        return 'Rock'
+        return 'Rock';
     } else if (randomNumber === 1) {
-        return 'Paper'
+        return 'Paper';
     } else {
-        return 'Scissors'
+        return 'Scissors';
     }
 }
 
@@ -35,21 +35,21 @@ let computerScore = 0
 
 function playRound (humanChoice, computerChoice) {
     if (humanChoice == computerChoice) {
-        return console.log("It's a tie!")
+        return console.log("It's a tie!");
     } else if (humanChoice == 'Rock' && computerChoice == 'Paper') {
-        return console.log("You lose! Paper beats Rock.")
+        return console.log("You lose! Paper beats Rock."), computerScore += 1;
     } else if (humanChoice == 'Rock' && computerChoice == 'Scissors') {
-        return console.log("You win! Rock beats Scissors.")
+        return console.log("You win! Rock beats Scissors."), humanScore += 1;
     } else if (humanChoice == 'Paper' && computerChoice == 'Rock') {
-        return console.log("You win! Paper beats Rock.")
+        return console.log("You win! Paper beats Rock."), humanScore += 1;
     } else if (humanChoice == 'Paper' && computerChoice == 'Scissors') {
-        return console.log("You lose! Scissors beat Paper.")
+        return console.log("You lose! Scissors beat Paper."), computerScore += 1;
     } else if (humanChoice == 'Scissors' && computerChoice == 'Rock') {
-        return console.log("You lose! Rock beats Scissors.")
+        return console.log("You lose! Rock beats Scissors."), computerScore += 1;
     } else if (humanChoice == 'Scissors' && computerChoice == 'Paper') {
-        return console.log("You win! Scissors beat Paper.")
+        return console.log("You win! Scissors beat Paper."), humanScore += 1;
     } else {
-        return console.log("Error")
+        return console.log("Error");
     }
 }
 
@@ -60,3 +60,6 @@ console.log("Computer selected: " + computerSelection)
 console.log("You selected: " + humanSelection)
 
 playRound(humanSelection, computerSelection)
+
+console.log(humanScore)
+console.log(computerScore)
