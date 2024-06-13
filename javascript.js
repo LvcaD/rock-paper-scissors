@@ -32,6 +32,12 @@ function getHumanChoice() {
     }
 }
 
+let humanScore = 0
+let computerScore = 0
+
+let humanSelection = getHumanChoice();
+let computerSelection = getComputerChoice();
+
 // Logic to play 1 round
 function playRound (humanChoice, computerChoice) {
     console.log("Computer selected: " + computerSelection);
@@ -54,13 +60,6 @@ function playRound (humanChoice, computerChoice) {
         return console.log("Error");
     }
 }
-
-
-let humanScore = 0
-let computerScore = 0
-
-let humanSelection = getHumanChoice();
-let computerSelection = getComputerChoice();
 
 // Logic to play 5 rounds in a row
 function playGame () {
